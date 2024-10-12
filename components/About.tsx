@@ -2,14 +2,20 @@
 
 import { motion } from 'framer-motion';
 
+const textVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1 },
+};
+
 const About = () => {
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-black via-purple-900 to-black text-white">
       <div className="container mx-auto px-4">
         <motion.h2 
           className="text-4xl font-bold mb-8 text-center neon-text"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
           transition={{ duration: 0.5 }}
         >
           About RO-NOC

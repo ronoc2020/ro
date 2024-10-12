@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [mounted, setMounted] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false); // Track image loading status
 
   useEffect(() => {
     setMounted(true);
@@ -32,8 +33,18 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <Image src="https://i.imgur.com/TfILJGI.gif" alt="RO-NOC Logo" width={200} height={200} className="mx-auto mb-8" />
+          <Image 
+            src="https://i.imgur.com/TfILJGI.gif" 
+            alt="RO-NOC Logo" 
+            width={200} 
+            height={200} 
+            className="mx-auto mb-8" 
+            priority
+            onLoad={() => setImageLoaded(true)} // Set image loaded state
+            onError={() => console.error('Image failed to load.')} // Error handling
+          />
         </motion.div>
+
         <motion.h1 
           className="text-5xl font-bold mb-4 neon-text"
           initial={{ scale: 0.5, opacity: 0 }}
@@ -56,11 +67,25 @@ const Hero = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.5 }}
         >
-          <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white lightsaber-button">
+          <Button 
+            size="lg" 
+            className="bg-purple-600 hover:bg-purple-700 text-white lightsaber-button"
+            aria-label="Explore our services"
+          >
             Explore Our Services
           </Button>
-          <Button size="lg" variant="outline" asChild className="holographic">
-            <a href="https://drive.google.com/file/d/YOUR_RESUME_FILE_ID/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            asChild 
+            className="holographic"
+            aria-label="View Resume"
+          >
+            <a 
+              href="https://drive.google.com/file/d/YOUR_RESUME_FILE_ID/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               View Resume
             </a>
           </Button>

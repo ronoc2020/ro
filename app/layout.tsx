@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon.ico',
   },
+  keywords: 'IT Solutions, Network Management, IT Consulting, Professional Services',
+  author: 'Your Name',
+  'theme-color': '#1E6C93', // Change to your preferred theme color
 };
 
 export default function RootLayout({
@@ -20,9 +23,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <main>{children}</main> {/* Wrapped children in a <main> tag */}
         </ThemeProvider>
       </body>
     </html>

@@ -2,6 +2,8 @@ import { Facebook, Twitter, Linkedin, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear(); // Dynamically get the current year
+
   return (
     <footer className="bg-black text-white py-8">
       <div className="container mx-auto px-4">
@@ -21,16 +23,23 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {[Facebook, Twitter, Linkedin, Github].map((Icon, index) => (
-              <motion.a 
-                key={index}
-                href="#" 
-                className="text-gray-400 hover:text-white transition-colors duration-300"
-                whileHover={{ scale: 1.2, rotate: 360 }}
-                whileTap={{ scale: 0.8 }}
-              >
-                <Icon size={24} />
-              </motion.a>
+            {[{ Icon: Facebook, link: 'https://facebook.com' }, 
+              { Icon: Twitter, link: 'https://twitter.com' }, 
+              { Icon: Linkedin, link: 'https://linkedin.com' }, 
+              { Icon: Github, link: 'https://github.com' }]
+              .map(({ Icon, link }, index) => (
+                <motion.a 
+                  key={index}
+                  href={link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-white transition-colors duration-300"
+                  whileHover={{ scale: 1.2, rotate: 360 }}
+                  whileTap={{ scale: 0.8 }}
+                  aria-label={`Follow us on ${Icon.displayName}`}
+                >
+                  <Icon size={24} />
+                </motion.a>
             ))}
           </motion.div>
         </div>
@@ -40,7 +49,7 @@ const Footer = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p>&copy; 2040 RO-NOC. All rights reserved.</p>
+          <p>&copy; {currentYear} RO-NOC. All rights reserved.</p>
           <p>Tel: +48 695295641 | Email: ronoc2020@gmail.com</p>
         </motion.div>
       </div>
