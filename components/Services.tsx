@@ -1,11 +1,12 @@
+// src/components/Services.tsx
 'use client';
 
-import { Server as ServerIcon, Shield, Cloud, Cpu } from 'lucide-react'; // Renamed Server to ServerIcon
+import { Server as ServerIcon, Shield, Cloud, Cpu } from 'lucide-react'; 
 import { motion } from 'framer-motion';
 
 const services = [
   {
-    icon: <ServerIcon className="w-12 h-12 mb-4 text-purple-500" />, // Use ServerIcon here
+    icon: <ServerIcon className="w-12 h-12 mb-4 text-purple-500" />,
     title: "24/7 Network Management",
     description: "Ensure your network's stability and performance with our round-the-clock monitoring and management services.",
   },
@@ -51,7 +52,11 @@ const Services = () => {
               aria-labelledby={`service-title-${index}`}
               aria-describedby={`service-desc-${index}`}
             >
-              <div className="flex justify-center">{service.icon}</div>
+              <div className="flex justify-center" role="img" aria-label={service.title}>
+                <motion.div whileHover={{ scale: 1.1 }}>
+                  {service.icon}
+                </motion.div>
+              </div>
               <h3 id={`service-title-${index}`} className="text-xl font-semibold mb-2 text-center">{service.title}</h3>
               <p id={`service-desc-${index}`} className="text-gray-400 text-center">{service.description}</p>
             </motion.div>

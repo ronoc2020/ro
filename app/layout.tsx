@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   },
   keywords: 'IT Solutions, Network Management, IT Consulting, Professional Services',
   authors: [{ name: 'Roman Miroslaw Orlowski', url: 'https://sites.google.com/view/ro-noc/strona-g%C5%82%C3%B3wna' }],
-  'theme-color': '#1E6C93',
+  // Remove themeColor from here
 };
 
 export default function RootLayout({
@@ -26,10 +26,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Keep the meta tag for theme color */}
+        <meta name="theme-color" content="#1E6C93" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          <main>{children}</main> {/* Wrapped children in a <main> tag */}
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>

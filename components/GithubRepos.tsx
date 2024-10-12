@@ -31,9 +31,14 @@ const GithubRepos = () => {
         const data = await response.json();
         setRepos(data);
         setFilteredRepos(data);
-      } catch (error) {
-        console.error('Error fetching repos:', error);
-        setError(error.message);
+      } catch (error: unknown) {  // Specify the type of error
+        if (error instanceof Error) { // Check if the error is an instance of Error
+          console.error('Error fetching repos:', error);
+          setError(error.message);  // Accessing message safely
+        } else {
+          console.error('Unexpected error:', error);
+          setError('An unexpected error occurred.');
+        }
       } finally {
         setLoading(false);
       }
