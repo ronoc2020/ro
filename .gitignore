@@ -9,6 +9,8 @@ out/
 
 # Local environment variables
 .env
+.env.local
+.env.development
 
 # Logs
 logs
@@ -36,3 +38,11 @@ public/static/
 *.p12
 *.sublime-workspace
 *.sublime-project
+
+# Package lock files
+package-lock.json
+yarn.lock
+
+# Other editor-specific files
+*.swo
+*.swp
