@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Github } from 'lucide-react';
+import { YouTube, Twitter, Linkedin, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -23,7 +23,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {[{ Icon: Facebook, link: 'https://facebook.com' }, 
+            {[{ Icon: YouTube, link: 'https://youtube.com' }, 
               { Icon: Twitter, link: 'https://twitter.com' }, 
               { Icon: Linkedin, link: 'https://linkedin.com' }, 
               { Icon: Github, link: 'https://github.com' }]
@@ -36,7 +36,7 @@ const Footer = () => {
                   className="text-gray-400 hover:text-white transition-colors duration-300"
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   whileTap={{ scale: 0.8 }}
-                  aria-label={`Follow us on ${Icon.displayName}`}
+                  aria-label={Icon.name}
                 >
                   <Icon size={24} />
                 </motion.a>
@@ -50,7 +50,10 @@ const Footer = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p>&copy; {currentYear} RO-NOC. All rights reserved.</p>
-          <p>Tel: +48 695295641 | Email: ronoc2020@gmail.com</p>
+          <p>
+            Tel: <a href="tel:+48695295641" className="hover:text-white transition-colors duration-300">+48 695 295 641</a> | 
+            Email: <a href="mailto:ronoc2020@gmail.com" className="hover:text-white transition-colors duration-300">ronoc2020@gmail.com</a>
+          </p>
         </motion.div>
       </div>
     </footer>
