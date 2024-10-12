@@ -12,8 +12,8 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
   },
   keywords: 'IT Solutions, Network Management, IT Consulting, Professional Services',
-  author: 'Your Name',
-  'theme-color': '#1E6C93', // Change to your preferred theme color
+  authors: [{ name: 'Roman Miroslaw Orlowski', url: 'https://sites.google.com/view/ro-noc/strona-g%C5%82%C3%B3wna' }],
+  'theme-color': '#1E6C93',
 };
 
 export default function RootLayout({

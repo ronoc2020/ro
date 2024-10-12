@@ -1,4 +1,4 @@
-import { YouTube, Twitter, Linkedin, Github } from 'lucide-react';
+import { Twitter, Linkedin, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
@@ -23,8 +23,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            {[{ Icon: YouTube, link: 'https://youtube.com' }, 
-              { Icon: Twitter, link: 'https://twitter.com' }, 
+            {[{Icon: Twitter, link: 'https://twitter.com' }, 
               { Icon: Linkedin, link: 'https://linkedin.com' }, 
               { Icon: Github, link: 'https://github.com' }]
               .map(({ Icon, link }, index) => (
