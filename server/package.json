@@ -1,0 +1,19 @@
+{
+  "name": "ro-legacy-contact-api",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Rate-limited localhost-only legacy contact form endpoint",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js",
+    "test": "node --test test/*.test.cjs"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "nodemailer": "^7.0.10"
+  }
+}
